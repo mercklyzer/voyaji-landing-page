@@ -180,11 +180,11 @@ export default function Page() {
             </p>
 
             <Link
-              className="self-start"
+              className="z-20 self-start"
               href="https://www.generatelabs.io/"
               target="_blank"
             >
-              <Button type="studio" styling="z-20 h-[50px] md:h-[80px]" />
+              <Button type="studio" styling="h-[50px] md:h-[80px]" />
             </Link>
           </aside>
         </div>
