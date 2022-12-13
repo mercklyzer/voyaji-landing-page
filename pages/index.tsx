@@ -144,7 +144,7 @@ export default function Page() {
               Get notified about News. Artworks. Live bid and more.
             </p>
             <p className="mb-4 text-sm">
-              It's safe to share your confidential.
+              It&apos;s safe to share your confidential.
             </p>
           </div>
         </div>
