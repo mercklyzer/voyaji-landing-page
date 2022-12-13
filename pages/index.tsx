@@ -1,5 +1,8 @@
 import Link from "next/link";
-import { Container, Button } from "modules/common";
+import { Container, Button, GradientOverlay } from "modules/common";
+import { isWhitelisted } from "modules/utils";
+import { useAccount, useConnect, useDisconnect } from "wagmi";
+import { InjectedConnector } from "wagmi/connectors/injected";
 
 const SOCIALS = [
   {
@@ -17,17 +20,23 @@ const NAVIGATION = [
     name: "Home",
     href: "/",
   },
-  {
-    name: "Contact",
-    href: "/contact",
-  },
-  {
-    name: "About",
-    href: "/about",
-  },
+  // {
+  //   name: "Contact",
+  //   href: "/contact",
+  // },
+  // {
+  //   name: "About",
+  //   href: "/about",
+  // },
 ];
 
 export default function Page() {
+  const { address, isConnected } = useAccount();
+  const { connect } = useConnect({
+    connector: new InjectedConnector(),
+  });
+  const { disconnect } = useDisconnect();
+
   return (
     <Container>
       {/* NAVBAR */}
@@ -45,57 +54,80 @@ export default function Page() {
                 {e.name}
               </Link>
             ))}
-            <Button type="connect" styling="h-[50px] mx-4" />
+
+            {isConnected && address ? (
+              <span className="text-yellow rounded-lg bg-orange p-2 text-sm">
+                {isWhitelisted(address) ? "Whitelisted" : "Not Whitelisted"}
+                <button onClick={() => disconnect()}>&nbsp;X</button>
+              </span>
+            ) : (
+              <Button
+                func={() => connect()}
+                type="connect"
+                styling="h-[50px] mx-4"
+              />
+            )}
           </span>
         </div>
       </nav>
 
       {/* HEADER */}
-      <header className="relative h-[90vh] w-full">
+      <GradientOverlay>
+        <header className="relative h-[90vh] w-full">
+          <div className="z-10 h-full w-full overflow-hidden">
+            <video width="100%" autoPlay muted loop>
+              <source src="assets/videos/raining.mp4" type="video/mp4" />
+              Your browser does not support video tags
+            </video>
+          </div>
+
+          <div className="absolute top-0 z-20 flex h-full w-full justify-end">
+            <aside className="flex h-full w-[50vw] flex-col justify-center p-20">
+              <h1 className="mb-4 text-right text-6xl font-black text-white">
+                Are you ready?
+              </h1>
+              <Link
+                className="self-end"
+                href="https://twitter.com/intent/tweet?text=I'm ready for the next clue, Voyager... @voyajiofficial"
+                target="_blank"
+              >
+                <Button type="voyage" styling="h-[80px]" />
+              </Link>
+            </aside>
+          </div>
+        </header>
+      </GradientOverlay>
+
+      {/* BODY */}
+      <section className="relative h-screen w-full bg-cover">
         <div className="z-10 h-full w-full overflow-hidden">
           <video width="100%" autoPlay muted loop>
-            <source src="assets/videos/raining.mp4" type="video/mp4" />
+            <source src="assets/videos/cave.mp4" type="video/mp4" />
             Your browser does not support video tags
           </video>
         </div>
 
-        <div className="absolute top-0 z-20 flex h-full w-full justify-end">
+        <div className="absolute top-0 h-full w-full">
           <aside className="flex h-full w-[50vw] flex-col justify-center p-20">
-            <h1 className="mb-4 text-right text-6xl font-black text-white">
-              Are you ready?
+            <h1 className="mb-4 text-left text-6xl font-black text-white">
+              An Adventure by Generate Labs
             </h1>
+
+            <p className="my-8 text-white">
+              Voyaji is an Adventure Collectible in the ETH Blockchain, created
+              by Generate Labs Studio - an exclusive Metaverse Company, with
+              extensive experience in NFT Asset Creation and NFT Management.
+            </p>
+
             <Link
-              className="self-end"
-              href="https://twitter.com/intent/tweet?text=I'm ready for the next clue, Voyager... @voyajiofficial"
+              className="self-start"
+              href="https://www.generatelabs.io/"
               target="_blank"
             >
-              <Button type="voyage" styling="h-[80px]" />
+              <Button type="studio" styling="h-[80px]" />
             </Link>
           </aside>
         </div>
-      </header>
-
-      {/* BODY */}
-      <section className="h-screen w-full bg-placeholder bg-cover">
-        <aside className="flex h-full w-[50vw] flex-col justify-center p-20">
-          <h1 className="mb-4 text-left text-6xl font-black text-white">
-            An Adventure by Generate Labs
-          </h1>
-
-          <p className="my-8 text-white">
-            Voyaji is an Adventure Collectible in the ETH Blockchain, created by
-            Generate Labs Studio - an exclusive Metaverse Company, with
-            extensive experience in NFT Asset Creation and NFT Management.
-          </p>
-
-          <Link
-            className="self-start"
-            href="https://www.generatelabs.io/"
-            target="_blank"
-          >
-            <Button type="studio" styling="h-[80px]" />
-          </Link>
-        </aside>
       </section>
 
       {/* FOOTER */}
@@ -110,9 +142,10 @@ export default function Page() {
             />
 
             <p className="my-4">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eu
-              turpis molestie, dictum est a, mattis tellus. Sed dignissim, metus
-              nec fringilla accumsan, risus sem sollicitudin lacus, ut{" "}
+              Are you ready for an epic quest Voyager? We are Voyaji, a
+              collective building an IP led by designers, creators and artists
+              alike. Together with Generate Labs, We picture a Metaverse united
+              by Creatives from all backgrounds.
             </p>
 
             <p className="mb-2 font-bold">Follow us:</p>
@@ -139,10 +172,14 @@ export default function Page() {
 
           {/* THIRD ROW */}
           <div>
-            <p className="text-md mb-4">Get Latest Updates</p>
-            <p className="mb-4">
-              Get notified about News. Artworks. Live bid and more.
-            </p>
+            <p className="text-md mb-4 font-bold">Get Latest Updates</p>
+
+            <p>Get notified about News. Artworks. Live bid and more.</p>
+
+            <div className="my-4 rounded-lg bg-gray-blue p-4 text-center">
+              Subscription Locked
+            </div>
+
             <p className="mb-4 text-sm">
               It&apos;s safe to share your confidential.
             </p>
