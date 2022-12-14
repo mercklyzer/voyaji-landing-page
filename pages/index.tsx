@@ -43,7 +43,7 @@ export default function Page() {
   return (
     <Container>
       {/* NAVBAR */}
-      <nav className="fixed z-50 w-screen">
+      <nav className="fixed z-50 w-screen font-montserrat-regular">
         {/* DESKTOP */}
         <div className="flex w-full justify-center bg-navy">
           <div className="hidden h-[10vh] w-full max-w-[1200px] items-center justify-between bg-navy p-4 text-white md:flex">
@@ -129,18 +129,16 @@ export default function Page() {
       <header className="relative w-full">
         <div className="h-[10vh]"></div>
         <div className="z-10 w-full overflow-hidden">
-          {/*
           <video width="100%" autoPlay muted loop>
             <source src="assets/videos/raining.mp4" type="video/mp4" />
             Your browser does not support video tags
           </video>
-          */}
         </div>
 
         {/* ONLY DEKSTOP VISIBLE */}
         <div className="absolute top-0 z-20 hidden h-full w-full justify-end md:flex">
           <aside className="flex h-full w-[50vw] flex-col justify-center p-20">
-            <h1 className="mb-4 text-right text-6xl font-black text-white">
+            <h1 className="mb-4 text-right font-montserrat-bold text-6xl text-white">
               Are you ready?
             </h1>
             <Link
@@ -171,11 +169,11 @@ export default function Page() {
       <section className="relative w-full bg-navy bg-cover md:h-screen">
         <div className="w-full md:h-full">
           <aside className="flex w-[90vw] flex-col justify-center p-12 md:h-full md:w-[50vw] md:p-20">
-            <h1 className="z-20 mb-4 text-left text-3xl font-black text-white md:text-6xl">
+            <h1 className="z-20 mb-4 text-left font-montserrat-bold text-3xl text-white md:text-6xl">
               An Adventure by Generate Labs
             </h1>
 
-            <p className="z-20 my-4 text-white md:my-8">
+            <p className="z-20 my-4 font-montserrat-regular text-white md:my-8">
               Voyaji is an Adventure Collectible in the ETH Blockchain, created
               by Generate Labs Studio - an exclusive Metaverse Company, with
               extensive experience in NFT Asset Creation and NFT Management.
@@ -192,17 +190,15 @@ export default function Page() {
         </div>
 
         <div className="absolute top-0 z-10 h-full w-full overflow-hidden">
-          {/*
           <video width="100%" autoPlay muted loop>
             <source src="assets/videos/cave.mp4" type="video/mp4" />
             Your browser does not support video tags
           </video>
-          */}
         </div>
       </section>
 
       {/* FOOTER */}
-      <footer className="w-full bg-navy p-12 md:p-40">
+      <footer className="w-full bg-navy p-12 font-montserrat-regular md:p-40">
         <div className="grid grid-cols-1 rounded-lg text-white md:grid-cols-[2fr_1fr_2fr] md:gap-20 md:bg-light-navy md:p-20">
           {/* FIRST ROW */}
           <div className="flex flex-col items-center md:block">
@@ -243,7 +239,9 @@ export default function Page() {
 
           {/* THIRD ROW */}
           <div className="mt-12 text-center md:text-left">
-            <p className="text-md mb-4 font-bold">Get Latest Updates</p>
+            <p className="text-md mb-4 font-montserrat-bold">
+              Get Latest Updates
+            </p>
 
             <p>Get notified about News. Artworks. Live bid and more.</p>
 

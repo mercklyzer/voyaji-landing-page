@@ -5,17 +5,17 @@
 /* Fonts */
 @font-face {
 	font-family: "Enchanted Land";
-	src: url("/assets/fonts/futura/Enchanted Land.otf") format("opentype");
+	src: url("/assets/fonts/Enchanted Land.otf") format("opentype");
 }
 
 @font-face {
 	font-family: "Montserrat Regular";
-	src: url("/assets/fonts/futura/Montserrat-Regular.otf") format("opentype");
+	src: url("/assets/fonts/Montserrat-Regular.otf") format("opentype");
 }
 
 @font-face {
 	font-family: "Montserrat Bold";
-	src: url("/assets/fonts/futura/Montserrat-Bold.otf") format("opentype");
+	src: url("/assets/fonts/Montserrat-Bold.otf") format("opentype");
 }
 
 /* html, */

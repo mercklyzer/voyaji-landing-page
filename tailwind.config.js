@@ -6,7 +6,7 @@ module.exports = {
       fontFamily: {
         enchanted: ["Enchanted Land"],
         "montserrat-regular": ["Montserrat Regular"],
-        "montserrat-bold": ["Montserrate Bold"],
+        "montserrat-bold": ["Montserrat Bold"],
       },
       backgroundImage: {
         placeholder: "url('/assets/images/placeholder.jpg')",
