@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { useState } from "react";
-import { Container, Button, GradientOverlay } from "modules/common";
+import { Container, Button, GradientOverlay, HoverImage } from "modules/common";
 import { isWhitelisted } from "modules/utils";
 import { useAccount, useConnect, useDisconnect } from "wagmi";
 import { InjectedConnector } from "wagmi/connectors/injected";
@@ -9,10 +9,12 @@ const SOCIALS = [
   {
     name: "Twitter",
     imgPath: "assets/buttons/twitter.png",
+    link: "https://twitter.com/voyajiofficial",
   },
   {
     name: "Discord",
     imgPath: "assets/buttons/discord.png",
+    link: "",
   },
 ];
 
@@ -55,7 +57,7 @@ export default function Page() {
 
             <span className="flex items-center">
               {NAVIGATION.map((e, idx) => (
-                <Link className="mx-4 hover:underline" key={idx} href={e.href}>
+                <Link className="mx-8 hover:underline" key={idx} href={e.href}>
                   {e.name}
                 </Link>
               ))}
@@ -66,11 +68,13 @@ export default function Page() {
                   <button onClick={() => disconnect()}>&nbsp;X</button>
                 </span>
               ) : (
-                <Button
-                  func={() => connect()}
-                  type="connect"
-                  styling="h-[50px] mx-4"
-                />
+                <button onClick={() => connect()}>
+                  <HoverImage
+                    name="Connect Wallet Button"
+                    onHoverImg="assets/buttons/connect-hover.png"
+                    onOutImg="assets/buttons/connect.png"
+                  />
+                </button>
               )}
             </span>
           </div>
@@ -128,17 +132,17 @@ export default function Page() {
       {/* HEADER */}
       <header className="relative w-full">
         <div className="h-[10vh] md:hidden"></div>
-        <div className="z-10 w-full overflow-hidden">
-          <video width="100%" autoPlay muted loop>
+        <div className="relative z-10 h-screen w-full overflow-hidden">
+          <video className="h-full w-full object-cover" autoPlay muted loop>
             <source src="assets/videos/cave.mp4" type="video/mp4" />
             Your browser does not support video tags
           </video>
         </div>
 
         {/* ONLY DEKSTOP VISIBLE */}
-        <div className="absolute top-0 z-20 hidden h-full w-full justify-start md:flex">
-          <aside className="flex h-full w-[50vw] flex-col justify-center p-32">
-            <h1 className="z-20 mb-4 text-left font-montserrat-bold text-3xl text-white md:text-6xl">
+        <div className="absolute top-0 z-20 flex h-full w-full justify-start bg-right-gradient bg-cover">
+          <aside className="flex h-full flex-col justify-center p-32 md:w-[80vw] lg:w-[70vw]">
+            <h1 className="z-20 mb-4 text-left font-montserrat-bold text-3xl text-white md:text-4xl lg:text-6xl">
               An Adventure by Generate Labs
             </h1>
 
@@ -153,7 +157,10 @@ export default function Page() {
               href="https://www.generatelabs.io/"
               target="_blank"
             >
-              <Button type="studio" styling="h-[50px] md:h-[80px]" />
+              <Button
+                type="studio"
+                styling="h-[50px] md:h-[60px] lg:h-[80px]"
+              />
             </Link>
           </aside>
         </div>
@@ -164,16 +171,16 @@ export default function Page() {
         <img className="w-full" src="assets/images/Union.png" alt="Union" />
 
         <div className="absolute top-0 flex h-full w-full flex-col items-center justify-center">
-          <h1 className="z-20 mb-16 text-center font-montserrat-bold text-3xl text-white md:text-6xl">
+          <h1 className="z-20 mb-2 text-center font-montserrat-bold text-3xl text-white md:mb-8 md:text-4xl lg:text-6xl">
             Are you Ready?
           </h1>
 
           <Link
             className="z-20"
-            href="https://www.generatelabs.io/"
+            href="https://twitter.com/intent/tweet?text=I'm ready for the next clue, Voyager... @voyajiofficial"
             target="_blank"
           >
-            <Button type="voyage" styling="h-[50px] md:h-[80px]" />
+            <Button type="voyage" styling="h-[50px] md:h-[60px] lg:h-[80px]" />
           </Link>
         </div>
       </section>
@@ -199,12 +206,19 @@ export default function Page() {
             <p className="mb-2 font-montserrat-bold">Follow us:</p>
             <div className="mb-12 flex md:mb-0">
               {SOCIALS.map((e, idx) => (
-                <img
-                  className="mr-4 h-12 hover:cursor-pointer"
+                <a
                   key={idx}
-                  src={e.imgPath}
-                  alt={e.name}
-                />
+                  href={e.link}
+                  target="_blank"
+                  rel="noreferrer noopener"
+                >
+                  <img
+                    className="mr-4 h-12 transition-all hover:scale-125 hover:cursor-pointer"
+                    key={idx}
+                    src={e.imgPath}
+                    alt={e.name}
+                  />
+                </a>
               ))}
             </div>
           </div>

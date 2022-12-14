@@ -11,6 +11,7 @@ module.exports = {
       backgroundImage: {
         placeholder: "url('/assets/images/placeholder.jpg')",
         union: "url('/assets/images/Union.png')",
+        "right-gradient": "url('/assets/images/right-gradient.png')",
       },
       backgroundColor: {
         dim: "rgba(0,0,0,0.5)",

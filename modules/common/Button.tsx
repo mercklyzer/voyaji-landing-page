@@ -8,7 +8,7 @@ const Button: React.FC<{
   return (
     <img
       onClick={() => (props.func ? props.func() : undefined)}
-      className={`hover:cursor-pointer ${props.styling}`}
+      className={`transition-all hover:scale-125 hover:cursor-pointer ${props.styling}`}
       src={`assets/buttons/${props.type}.png`}
       alt={`${props.type} Button`}
     />

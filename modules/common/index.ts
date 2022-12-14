@@ -1,4 +1,5 @@
 import { Container } from "./layouts";
 import Button from "./Button";
 import GradientOverlay from "./GradientOverlay";
-export { Button, Container, GradientOverlay };
+import HoverImage from "./HoverImage";
+export { Button, Container, GradientOverlay, HoverImage };
