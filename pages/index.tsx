@@ -238,7 +238,7 @@ export default function Page() {
           </div>
 
           {/* THIRD ROW */}
-          <div className="mt-12 text-center">
+          <div className="mt-12 text-center md:text-left">
             <p className="text-md mb-4 font-bold">Get Latest Updates</p>
 
             <p>Get notified about News. Artworks. Live bid and more.</p>
