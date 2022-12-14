@@ -23,7 +23,7 @@ const client = createClient({
 export default function App({ Component, pageProps }: AppProps) {
   return (
     <WagmiConfig client={client}>
-      <Component {...pageProps} />;
+      <Component {...pageProps} />
     </WagmiConfig>
   );
 }
