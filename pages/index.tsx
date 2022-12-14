@@ -7,12 +7,12 @@ import { InjectedConnector } from "wagmi/connectors/injected";
 
 const SOCIALS = [
   {
-    name: "Discord",
-    imgPath: "assets/buttons/discord.png",
-  },
-  {
     name: "Twitter",
     imgPath: "assets/buttons/twitter.png",
+  },
+  {
+    name: "Discord",
+    imgPath: "assets/buttons/discord.png",
   },
 ];
 
@@ -127,53 +127,22 @@ export default function Page() {
 
       {/* HEADER */}
       <header className="relative w-full">
-        <div className="h-[10vh]"></div>
+        <div className="h-[10vh] md:hidden"></div>
         <div className="z-10 w-full overflow-hidden">
           <video width="100%" autoPlay muted loop>
-            <source src="assets/videos/raining.mp4" type="video/mp4" />
+            <source src="assets/videos/cave.mp4" type="video/mp4" />
             Your browser does not support video tags
           </video>
         </div>
 
         {/* ONLY DEKSTOP VISIBLE */}
-        <div className="absolute top-0 z-20 hidden h-full w-full justify-end md:flex">
-          <aside className="flex h-full w-[50vw] flex-col justify-center p-20">
-            <h1 className="mb-4 text-right font-montserrat-bold text-6xl text-white">
-              Are you ready?
-            </h1>
-            <Link
-              className="self-end"
-              href="https://twitter.com/intent/tweet?text=I'm ready for the next clue, Voyager... @voyajiofficial"
-              target="_blank"
-            >
-              <Button type="voyage" styling="h-[80px]" />
-            </Link>
-          </aside>
-        </div>
-
-        {/* ONLY MOBILE VISIBLE */}
-        <div className="z-20 flex w-full flex-col items-center justify-center bg-navy p-20 md:hidden">
-          <h1 className="mb-4 w-full text-center font-montserrat-bold text-3xl text-white">
-            Are you ready?
-          </h1>
-          <Link
-            href="https://twitter.com/intent/tweet?text=I'm ready for the next clue, Voyager... @voyajiofficial"
-            target="_blank"
-          >
-            <Button type="voyage" styling="h-[50px]" />
-          </Link>
-        </div>
-      </header>
-
-      {/* BODY */}
-      <section className="relative w-full bg-navy bg-cover md:h-screen">
-        <div className="w-full md:h-full">
-          <aside className="flex w-[90vw] flex-col justify-center p-12 md:h-full md:w-[50vw] md:p-20">
+        <div className="absolute top-0 z-20 hidden h-full w-full justify-start md:flex">
+          <aside className="flex h-full w-[50vw] flex-col justify-center p-32">
             <h1 className="z-20 mb-4 text-left font-montserrat-bold text-3xl text-white md:text-6xl">
               An Adventure by Generate Labs
             </h1>
 
-            <p className="z-20 my-4 font-montserrat-regular text-white md:my-8">
+            <p className="z-20 my-4 font-montserrat-regular text-white md:mt-4 md:mb-16">
               Voyaji is an Adventure Collectible in the ETH Blockchain, created
               by Generate Labs Studio - an exclusive Metaverse Company, with
               extensive experience in NFT Asset Creation and NFT Management.
@@ -188,12 +157,24 @@ export default function Page() {
             </Link>
           </aside>
         </div>
+      </header>
 
-        <div className="absolute top-0 z-10 h-full w-full overflow-hidden">
-          <video width="100%" autoPlay muted loop>
-            <source src="assets/videos/cave.mp4" type="video/mp4" />
-            Your browser does not support video tags
-          </video>
+      {/* BODY */}
+      <section className="relative relative w-full bg-navy">
+        <img className="w-full" src="assets/images/Union.png" alt="Union" />
+
+        <div className="absolute top-0 flex h-full w-full flex-col items-center justify-center">
+          <h1 className="z-20 mb-16 text-center font-montserrat-bold text-3xl text-white md:text-6xl">
+            Are you Ready?
+          </h1>
+
+          <Link
+            className="z-20"
+            href="https://www.generatelabs.io/"
+            target="_blank"
+          >
+            <Button type="voyage" styling="h-[50px] md:h-[80px]" />
+          </Link>
         </div>
       </section>
 
@@ -215,11 +196,11 @@ export default function Page() {
               by Creatives from all backgrounds.
             </p>
 
-            <p className="mb-2 font-bold">Follow us:</p>
+            <p className="mb-2 font-montserrat-bold">Follow us:</p>
             <div className="mb-12 flex md:mb-0">
               {SOCIALS.map((e, idx) => (
                 <img
-                  className="mr-2 h-12 hover:cursor-pointer"
+                  className="mr-4 h-12 hover:cursor-pointer"
                   key={idx}
                   src={e.imgPath}
                   alt={e.name}
