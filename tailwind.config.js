@@ -3,6 +3,11 @@ module.exports = {
   content: ["./pages/**/*.{js,ts,jsx,tsx}", "./modules/**/*.{js,ts,jsx,tsx}"],
   theme: {
     extend: {
+      fontFamily: {
+        enchanted: ["Enchanted Land"],
+        "montserrat-regular": ["Montserrat Regular"],
+        "montserrat-bold": ["Montserrate Bold"],
+      },
       backgroundImage: {
         placeholder: "url('/assets/images/placeholder.jpg')",
       },

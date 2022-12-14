@@ -129,10 +129,12 @@ export default function Page() {
       <header className="relative w-full">
         <div className="h-[10vh]"></div>
         <div className="z-10 w-full overflow-hidden">
+          {/*
           <video width="100%" autoPlay muted loop>
             <source src="assets/videos/raining.mp4" type="video/mp4" />
             Your browser does not support video tags
           </video>
+          */}
         </div>
 
         {/* ONLY DEKSTOP VISIBLE */}
@@ -153,7 +155,7 @@ export default function Page() {
 
         {/* ONLY MOBILE VISIBLE */}
         <div className="z-20 flex w-full flex-col items-center justify-center bg-navy p-20 md:hidden">
-          <h1 className="mb-4 w-full text-center text-3xl font-black text-white">
+          <h1 className="mb-4 w-full text-center font-montserrat-bold text-3xl text-white">
             Are you ready?
           </h1>
           <Link
@@ -190,10 +192,12 @@ export default function Page() {
         </div>
 
         <div className="absolute top-0 z-10 h-full w-full overflow-hidden">
+          {/*
           <video width="100%" autoPlay muted loop>
             <source src="assets/videos/cave.mp4" type="video/mp4" />
             Your browser does not support video tags
           </video>
+          */}
         </div>
       </section>
 
