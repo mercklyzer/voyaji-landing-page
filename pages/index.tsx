@@ -317,13 +317,13 @@ export default function Page() {
             <p>Get notified about News. Artworks. Live bid and more.</p>
 
             <UnderConstruction type="below">
-              <div className="my-4 grid grid-cols-[3fr_1fr] gap-0 rounded-xl bg-gray-blue">
+              <div className="my-4 grid-cols-[3fr_1fr] gap-0 rounded-xl bg-gray-blue sm:grid">
                 <input
-                  className="rounded-l-xl bg-gray-blue p-5 text-white outline-none placeholder:text-white"
+                  className="w-full rounded-xl bg-gray-blue p-5 text-center text-white outline-none placeholder:text-white sm:w-auto sm:rounded-l-xl sm:text-left"
                   type="email"
                   placeholder="Type your email"
                 />
-                <button className="rounded-xl bg-gray p-5 text-white">
+                <button className="w-full rounded-xl bg-gray p-5 text-white sm:w-auto">
                   Subscribe
                 </button>
               </div>
