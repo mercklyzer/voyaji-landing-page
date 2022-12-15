@@ -289,7 +289,7 @@ export default function Page() {
           Brands we&apos;ve worked with
         </h1>
         <div className="overflow-x-scroll">
-          <div className="flex w-[4000px] items-center justify-between">
+          <div className="flex w-[3300px] items-center justify-between">
             {BRANDS.map((e, idx) => (
               <a
                 className="transition-all hover:scale-110"
