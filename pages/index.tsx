@@ -43,6 +43,59 @@ const NAVIGATION = [
   },
 ];
 
+const BRANDS = [
+  {
+    name: "Lympo",
+    link: "https://twitter.com/Lympo_io",
+    imgPath: "assets/images/lympo.png",
+  },
+  {
+    name: "Alex Hawkers",
+    link: "https://www.hawkersco.com/en",
+    imgPath: "assets/images/hawkers.png",
+  },
+  {
+    name: "Alfa Hanta",
+    link: "https://twitter.com/alfahanta",
+    imgPath: "assets/images/alfa_hanta.png",
+  },
+  {
+    name: "Game-Fi capital",
+    link: "https://twitter.com/gameficapital",
+    imgPath: "assets/images/gamefi.png",
+  },
+  {
+    name: "Illiquid Capital",
+    link: "https://illiquidcapital.io/",
+    imgPath: "assets/images/illiquid_capital.png",
+  },
+  {
+    name: "Psydelve",
+    link: "https://twitter.com/psydelve",
+    imgPath: "assets/images/psydelve.png",
+  },
+  {
+    name: "Cyber Ronins",
+    link: "https://twitter.com/RoninsVIP",
+    imgPath: "assets/images/cyber_ronins.png",
+  },
+  {
+    name: "Battle Species",
+    link: "https://battlespecies.net/",
+    imgPath: "assets/images/battle_species.png",
+  },
+  {
+    name: "Abo Khashem",
+    link: "https://www.abokhashem.com/home",
+    imgPath: "assets/images/abo_khashem.png",
+  },
+  {
+    name: "King Crown DAO",
+    link: "https://twitter.com/KingCrownDAO",
+    imgPath: "assets/images/king_crown_dao.png",
+  },
+];
+
 export default function Page() {
   const [showMobileNav, setShowMobileNav] = useState(false);
 
@@ -210,7 +263,11 @@ export default function Page() {
 
       {/* BODY */}
       <section className="relative relative w-full bg-navy">
-        <img className="w-full" src="assets/images/Union.png" alt="Union" />
+        <img
+          className="w-full"
+          src="assets/images/upper_vector.png"
+          alt="Union"
+        />
 
         <div className="absolute top-0 flex h-full w-full flex-col items-center justify-center">
           <h1 className="z-20 mb-2 text-center font-montserrat-bold text-3xl text-white md:mb-8 md:text-4xl lg:text-6xl">
@@ -225,6 +282,35 @@ export default function Page() {
             <Button type="voyage" styling="h-[50px] md:h-[60px] lg:h-[80px]" />
           </Link>
         </div>
+      </section>
+
+      <section className="flex w-full flex-col bg-navy p-24">
+        <h1 className="mb-8 font-montserrat-bold text-3xl text-white">
+          Brands we've worked with
+        </h1>
+        <div className="overflow-x-scroll">
+          <div className="flex w-[4000px] items-center justify-between">
+            {BRANDS.map((e, idx) => (
+              <a
+                className="transition-all hover:scale-110"
+                key={idx}
+                href={e.link}
+                rel="noopener noreferrer"
+                target="_blank"
+              >
+                <img className="w-[300px]" src={e.imgPath} alt={e.name} />
+              </a>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="relative relative w-full bg-navy">
+        <img
+          className="w-full"
+          src="assets/images/lower_vector.png"
+          alt="Union"
+        />
       </section>
 
       {/* FOOTER */}
