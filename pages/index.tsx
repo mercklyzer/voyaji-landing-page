@@ -285,11 +285,11 @@ export default function Page() {
       </section>
 
       <section className="flex w-full flex-col bg-navy p-24">
-        <h1 className="mb-8 font-montserrat-bold text-3xl text-white">
+        <h1 className="px-8 font-montserrat-bold text-3xl text-white">
           Brands we&apos;ve worked with
         </h1>
         <div className="overflow-x-scroll">
-          <div className="flex w-[3300px] items-center justify-between">
+          <div className="flex w-[3300px] items-center justify-between p-8">
             {BRANDS.map((e, idx) => (
               <a
                 className="transition-all hover:scale-110"
