@@ -15,7 +15,7 @@ module.exports = {
       },
       backgroundColor: {
         dim: "rgba(0,0,0,0.5)",
-        "navy-dim": "rgba(14, 15, 38, 0.8)",
+        "navy-dim": "rgba(14, 15, 38, 0.95)",
         navy: "#0E0F26",
         "light-blue": "#0c89e4",
         "light-navy": "#131432",

@@ -6,6 +6,7 @@ import {
   HoverImage,
   UnderConstruction,
 } from "modules/common";
+import { SocialsSidebar } from "modules/static";
 import { isWhitelisted } from "modules/utils";
 import { useAccount, useConnect, useDisconnect } from "wagmi";
 import { InjectedConnector } from "wagmi/connectors/injected";
@@ -85,6 +86,11 @@ const BRANDS = [
     imgPath: "assets/images/battle_species.png",
   },
   {
+    name: "",
+    link: "",
+    imgPath: "",
+  },
+  {
     name: "Abo Khashem",
     link: "https://www.abokhashem.com/home",
     imgPath: "assets/images/abo_khashem.png",
@@ -94,10 +100,20 @@ const BRANDS = [
     link: "https://twitter.com/KingCrownDAO",
     imgPath: "assets/images/king_crown_dao.png",
   },
+  {
+    name: "",
+    link: "",
+    imgPath: "",
+  },
 ];
 
 export default function Page() {
   const [showMobileNav, setShowMobileNav] = useState(false);
+
+  /*
+   * @dev page = Home | Contact | About
+   */
+  const [page, setPage] = useState("Home");
 
   const { address, isConnected } = useAccount();
   const { connect } = useConnect({
@@ -111,23 +127,26 @@ export default function Page() {
       <nav className="fixed z-50 w-screen font-montserrat-regular">
         {/* DESKTOP */}
         <div className="flex w-full justify-center bg-navy">
-          <div className="hidden h-[10vh] w-full max-w-[1200px] items-center justify-between bg-navy p-4 text-white md:flex">
+          <div className="hidden h-[10vh] w-full max-w-[1200px] items-center justify-between bg-navy text-white md:flex">
             <img
-              className="h-[70%]"
+              className="h-[70%] p-4"
               src="assets/buttons/logo.png"
               alt="Voyaji Logo"
             />
 
-            <span className="flex items-center">
+            <span className="flex h-full items-center">
               {NAVIGATION.map((e, idx) => (
                 <>
                   {e.isActive ? (
                     <Link
-                      className="mx-8 hover:underline"
+                      className={`border-light-blue mx-8 h-full align-middle hover:underline ${
+                        page === e.name ? "border-b-8" : "border-0"
+                      }`}
+                      onClick={() => setPage(e.name)}
                       key={idx}
                       href={e.href}
                     >
-                      {e.name}
+                      <span>{e.name}</span>
                     </Link>
                   ) : (
                     <UnderConstruction styling="" type="below">
@@ -230,7 +249,7 @@ export default function Page() {
         <div className="h-[10vh] md:hidden"></div>
         <div className="relative z-10 h-screen w-full overflow-hidden">
           <video className="h-full w-full object-cover" autoPlay muted loop>
-            <source src="assets/videos/cave.mp4" type="video/mp4" />
+            <source src="assets/videos/flip.mp4" type="video/mp4" />
             Your browser does not support video tags
           </video>
         </div>
@@ -259,6 +278,9 @@ export default function Page() {
             </Link>
           </aside>
         </div>
+
+        {/* SOCIALS SIDERBAR*/}
+        <SocialsSidebar />
       </header>
 
       {/* BODY */}
@@ -284,24 +306,22 @@ export default function Page() {
         </div>
       </section>
 
-      <section className="flex w-full flex-col bg-navy p-24">
-        <h1 className="px-8 font-montserrat-bold text-3xl text-white">
+      <section className="flex w-full flex-col bg-navy py-20 px-40">
+        <h1 className="mb-8 font-montserrat-bold text-3xl text-white">
           Brands we&apos;ve worked with
         </h1>
-        <div className="overflow-x-scroll">
-          <div className="flex w-[3300px] items-center justify-between p-8">
-            {BRANDS.map((e, idx) => (
-              <a
-                className="transition-all hover:scale-110"
-                key={idx}
-                href={e.link}
-                rel="noopener noreferrer"
-                target="_blank"
-              >
-                <img className="w-[300px]" src={e.imgPath} alt={e.name} />
-              </a>
-            ))}
-          </div>
+        <div className="grid w-full grid-cols-4 gap-16">
+          {BRANDS.map((e, idx) => (
+            <a
+              className="transition-all hover:scale-110"
+              key={idx}
+              href={e.link}
+              rel="noopener noreferrer"
+              target="_blank"
+            >
+              <img className="w-full" src={e.imgPath} alt={e.name} />
+            </a>
+          ))}
         </div>
       </section>
 
