@@ -13,11 +13,11 @@ module.exports = {
         union: "url('/assets/images/Union.png')",
         "right-gradient": "url('/assets/images/right-gradient.png')",
       },
-      backgroundColor: {
+      colors: {
         dim: "rgba(0,0,0,0.5)",
         "navy-dim": "rgba(14, 15, 38, 0.95)",
         navy: "#0E0F26",
-        "light-blue": "#0c89e4",
+        "light-purple": "#4735E2",
         "light-navy": "#131432",
         gray: "#363636",
         "gray-blue": "#3b3b53",

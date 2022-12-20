@@ -14,13 +14,19 @@ import { InjectedConnector } from "wagmi/connectors/injected";
 const SOCIALS = [
   {
     name: "Twitter",
-    imgPath: "assets/buttons/twitter.png",
+    imgPath: "assets/buttons/twitter.svg",
     link: "https://twitter.com/voyajiofficial",
     isActive: true,
   },
   {
+    name: "Medium",
+    imgPath: "assets/buttons/medium.svg",
+    link: "https://generatelabs.medium.com/",
+    isActive: true,
+  },
+  {
     name: "Discord",
-    imgPath: "assets/buttons/discord.png",
+    imgPath: "assets/buttons/discord.svg",
     link: "",
     isActive: false,
   },
@@ -123,6 +129,7 @@ export default function Page() {
 
   return (
     <Container>
+      {/*<Container styling={showMobileNav ? "overflow-hidden" : ""}>*/}
       {/* NAVBAR */}
       <nav className="fixed z-50 w-screen font-montserrat-regular">
         {/* DESKTOP */}
@@ -134,12 +141,12 @@ export default function Page() {
               alt="Voyaji Logo"
             />
 
-            <span className="flex h-full items-center">
+            <span className="flex h-full items-center px-4">
               {NAVIGATION.map((e, idx) => (
                 <>
                   {e.isActive ? (
                     <Link
-                      className={`border-light-blue mx-8 h-full align-middle hover:underline ${
+                      className={`mx-8 flex h-full flex-col justify-center border-light-purple hover:border-b-8 hover:border-white ${
                         page === e.name ? "border-b-8" : "border-0"
                       }`}
                       onClick={() => setPage(e.name)}
@@ -163,7 +170,7 @@ export default function Page() {
               ))}
 
               {isConnected && address ? (
-                <span className="text-yellow rounded-lg bg-orange p-2 text-sm">
+                <span className="rounded-lg bg-orange p-2 p-4 text-sm text-yellow">
                   {isWhitelisted(address) ? "Whitelisted" : "Not Whitelisted"}
                   <button onClick={() => disconnect()}>&nbsp;X</button>
                 </span>
@@ -190,9 +197,9 @@ export default function Page() {
             />
 
             <img
-              className="h-[40%] hover:cursor-pointer"
+              className="h-[60%] hover:cursor-pointer"
               onClick={() => setShowMobileNav((prev) => !prev)}
-              src="assets/icons/burger.png"
+              src={`assets/icons/${showMobileNav ? "close" : "burger"}.svg`}
               alt="Menu Icon"
             />
           </div>
@@ -200,32 +207,54 @@ export default function Page() {
           {showMobileNav && (
             <div className="absolute z-40 h-screen w-full bg-navy-dim">
               <div className="h-[10vh]"></div>
-              <div className="flex flex-col items-center py-12">
-                {NAVIGATION.map((e, idx) => (
-                  <>
-                    {e.isActive ? (
-                      <Link
-                        className="w-full border-b-2 border-white p-4 text-center hover:underline"
-                        key={idx}
-                        href={e.href}
-                      >
-                        {e.name}
-                      </Link>
-                    ) : (
-                      <UnderConstruction
-                        styling="w-full border-b-2 border-white p-4 text-center hover:underline"
-                        type="below"
-                      >
-                        <Link key={idx} href={e.href}>
+              <div className="m-4 flex flex-col items-center rounded-lg bg-light-purple p-12">
+                <h1 className="text-center font-montserrat-bold text-3xl">
+                  Are you ready for an epic quest
+                </h1>
+                <p className="my-8 text-center font-montserrat-regular">
+                  We are Voyaji, a community led by designers, creators and
+                  artists alike. Together with Generate Labs, We picture a
+                  Metaverse united by Creatives from all backgrounds.
+                </p>
+
+                <div>
+                  {NAVIGATION.map((e, idx) => (
+                    <>
+                      {e.isActive ? (
+                        <Link
+                          className="mb-4 flex items-center"
+                          key={idx}
+                          href={e.href}
+                        >
+                          <img
+                            className="mr-4"
+                            src="assets/icons/white-triangle.svg"
+                            alt="White Triangle"
+                          />
                           {e.name}
                         </Link>
-                      </UnderConstruction>
-                    )}
-                  </>
-                ))}
+                      ) : (
+                        <UnderConstruction type="below">
+                          <Link
+                            className="mb-4 flex items-center"
+                            key={idx}
+                            href={e.href}
+                          >
+                            <img
+                              className="mr-4"
+                              src="assets/icons/white-triangle.svg"
+                              alt="White Triangle"
+                            />
+                            {e.name}
+                          </Link>
+                        </UnderConstruction>
+                      )}
+                    </>
+                  ))}
+                </div>
 
                 {isConnected && address ? (
-                  <span className="text-yellow mt-12 rounded-lg bg-orange p-2 text-sm">
+                  <span className="mt-12 rounded-lg bg-orange p-2 text-sm text-yellow">
                     {isWhitelisted(address) ? "Whitelisted" : "Not Whitelisted"}
                     <button onClick={() => disconnect()}>&nbsp;X</button>
                   </span>
@@ -234,18 +263,57 @@ export default function Page() {
                     <HoverImage
                       name="Connect Wallet Button"
                       onHoverImg="assets/buttons/connect-hover.png"
-                      onOutImg="assets/buttons/connect.png"
+                      onOutImg="assets/buttons/connect-hover.png"
                     />
                   </button>
                 )}
+
+                <div className="mt-8 w-full">
+                  <h2>Follow the Voyage:</h2>
+                  <div className="flex w-full items-center justify-between">
+                    <span className="flex grid grid-cols-3 gap-2">
+                      {SOCIALS.map((e, idx) => (
+                        <a
+                          className="transition-all hover:scale-125"
+                          onClick={() => setPage(e.name)}
+                          key={idx}
+                          href={e.link}
+                          target="_blank"
+                          rel="noreferrer noopener"
+                        >
+                          <img
+                            className="h-[30px]"
+                            src={e.imgPath}
+                            alt={`${e.name} Logo`}
+                          />
+                        </a>
+                      ))}
+                    </span>
+
+                    <a
+                      href="https://www.generatelabs.io/"
+                      target="_blank"
+                      rel="noreferrer noopener"
+                    >
+                      <img
+                        src="assets/icons/genlabs-logo.svg"
+                        alt="Generate Labs Logo"
+                      />
+                    </a>
+                  </div>
+                </div>
+
+                <p className="mt-16 text-xs">
+                  © GenerateLabs. All rights Reserved.
+                </p>
               </div>
             </div>
           )}
         </div>
       </nav>
 
-      {/* HEADER */}
-      <header className="relative w-full">
+      {/* DESKTOP HEADER */}
+      <header className="relative hidden w-full md:block">
         <div className="h-[10vh] md:hidden"></div>
         <div className="relative z-10 h-screen w-full overflow-hidden">
           <video className="h-full w-full object-cover" autoPlay muted loop>
@@ -255,19 +323,20 @@ export default function Page() {
         </div>
 
         <div className="absolute top-0 z-20 flex h-full w-full justify-start bg-right-gradient bg-cover">
-          <aside className="flex h-full flex-col justify-center p-16 md:w-[80vw] md:p-32 lg:w-[70vw]">
-            <h1 className="z-20 mb-4 text-left font-montserrat-bold text-3xl text-white md:text-4xl lg:text-6xl">
+          <aside className="flex h-full w-[70vw] flex-col justify-center p-16 p-32 lg:w-[60vw]">
+            <div className="h-[10vh] md:hidden"></div>
+            <h1 className="z-20 mb-4 text-left text-center font-montserrat-bold text-3xl text-white md:text-left md:text-4xl lg:text-6xl">
               An Adventure by Generate Labs
             </h1>
 
-            <p className="z-20 my-4 font-montserrat-regular text-white md:mt-4 md:mb-16">
+            <p className="z-20 mb-4 text-center font-montserrat-regular text-white md:mt-4 md:mb-16 md:text-left">
               Voyaji is an Adventure Collectible in the ETH Blockchain, created
               by Generate Labs Studio - an exclusive Metaverse Company, with
               extensive experience in NFT Asset Creation and NFT Management.
             </p>
 
             <Link
-              className="z-20 self-start"
+              className="z-20 self-start self-center md:self-start"
               href="https://www.generatelabs.io/"
               target="_blank"
             >
@@ -283,16 +352,52 @@ export default function Page() {
         <SocialsSidebar />
       </header>
 
+      {/* MOBILE HEADER */}
+      <header className="relative block h-[70vh] w-full text-center md:hidden">
+        <div className="relative z-10 h-full overflow-hidden">
+          <video className="h-full w-full object-cover" autoPlay muted loop>
+            <source src="assets/videos/flip.mp4" type="video/mp4" />
+            Your browser does not support video tags
+          </video>
+        </div>
+
+        <div className="absolute top-0 z-20 flex h-full w-full flex-col items-center justify-center bg-right-gradient bg-cover p-8">
+          <h1 className="z-20 mb-4 font-montserrat-bold text-2xl text-white md:text-left md:text-4xl lg:text-6xl">
+            An Adventure by Generate Labs
+          </h1>
+
+          <p className="z-20 mb-4 font-montserrat-regular text-white md:mt-4 md:mb-16 md:text-left">
+            Voyaji is an Adventure Collectible in the ETH Blockchain, created by
+            Generate Labs Studio - an exclusive Metaverse Company, with
+            extensive experience in NFT Asset Creation and NFT Management.
+          </p>
+
+          <Link
+            className="z-20 self-start self-center md:self-start"
+            href="https://www.generatelabs.io/"
+            target="_blank"
+          >
+            <Button type="studio" styling="h-[50px] md:h-[60px] lg:h-[80px]" />
+          </Link>
+        </div>
+      </header>
+
       {/* BODY */}
       <section className="relative relative w-full bg-navy">
         <img
-          className="w-full"
+          className="hidden w-full md:block"
           src="assets/images/upper_vector.png"
           alt="Union"
         />
 
+        <img
+          className="block w-full md:hidden"
+          src="assets/images/upper_mobile.png"
+          alt="Union"
+        />
+
         <div className="absolute top-0 flex h-full w-full flex-col items-center justify-center">
-          <h1 className="z-20 mb-2 text-center font-montserrat-bold text-3xl text-white md:mb-8 md:text-4xl lg:text-6xl">
+          <h1 className="z-20 mb-2 text-center font-montserrat-bold text-3xl text-white md:mb-4 md:text-4xl lg:text-6xl">
             Are you Ready?
           </h1>
 
@@ -306,29 +411,69 @@ export default function Page() {
         </div>
       </section>
 
-      <section className="flex w-full flex-col bg-navy py-20 px-40">
+      {/* BRANDS DESKTOP */}
+      <section className="hidden w-full flex-col bg-navy py-20 px-40 md:flex">
         <h1 className="mb-8 font-montserrat-bold text-3xl text-white">
           Brands we&apos;ve worked with
         </h1>
-        <div className="grid w-full grid-cols-4 gap-16">
+        <div className="grid w-full grid-cols-4 gap-[2vw]">
           {BRANDS.map((e, idx) => (
-            <a
-              className="transition-all hover:scale-110"
-              key={idx}
-              href={e.link}
-              rel="noopener noreferrer"
-              target="_blank"
-            >
-              <img className="w-full" src={e.imgPath} alt={e.name} />
-            </a>
+            <>
+              {e.link.length !== 0 ? (
+                <a
+                  className="transition-all hover:scale-110"
+                  key={idx}
+                  href={e.link}
+                  rel="noopener noreferrer"
+                  target="_blank"
+                >
+                  <img className="w-full" src={e.imgPath} alt={e.name} />
+                </a>
+              ) : (
+                <div className="transition-all hover:scale-110" key={idx}>
+                  {/* UNCLICKABLE BLANK IF LINK IS EMPTY */}
+                  <img className="w-full" src={e.imgPath} alt={e.name} />
+                </div>
+              )}
+            </>
+          ))}
+        </div>
+      </section>
+
+      {/* BRANDS MOBILE */}
+      <section className="flex w-full flex-col bg-navy p-12 md:hidden">
+        <h1 className="mb-8 text-center font-montserrat-bold text-3xl text-white">
+          Brands we&apos;ve worked with
+        </h1>
+        <div className="grid w-full grid-cols-2 gap-[2vw]">
+          {BRANDS.map((e, idx) => (
+            <>
+              {e.link.length !== 0 && (
+                <a
+                  className="transition-all hover:scale-110"
+                  key={idx}
+                  href={e.link}
+                  rel="noopener noreferrer"
+                  target="_blank"
+                >
+                  <img className="w-full" src={e.imgPath} alt={e.name} />
+                </a>
+              )}
+            </>
           ))}
         </div>
       </section>
 
       <section className="relative relative w-full bg-navy">
         <img
-          className="w-full"
+          className="hidden w-full md:block"
           src="assets/images/lower_vector.png"
+          alt="Union"
+        />
+
+        <img
+          className="block w-full md:hidden"
+          src="assets/images/lower_mobile.png"
           alt="Union"
         />
       </section>
