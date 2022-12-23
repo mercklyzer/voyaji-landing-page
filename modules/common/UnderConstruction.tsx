@@ -24,7 +24,7 @@ const UnderConstruction: React.FC<{
       <div className="pointer-events-none opacity-40">{props.children}</div>
       {show && (
         <>
-          <span className="absolute top-[-60px] z-50 box-border flex h-[40px] w-[300px] items-center justify-center rounded-sm bg-tooltip-red text-center">
+          <span className="absolute top-[-60px] z-50 box-border flex h-[40px] w-[300px] items-center justify-center bg-tooltip-red text-center">
             <p>You will know soon enough</p>
           </span>
           <img
