@@ -234,7 +234,7 @@ export default function Page() {
                           {e.name}
                         </Link>
                       ) : (
-                        <UnderConstruction type="below">
+                        <UnderConstruction>
                           <Link
                             className="mb-4 flex items-center"
                             key={idx}
