@@ -156,7 +156,7 @@ export default function Page() {
                       <span>{e.name}</span>
                     </Link>
                   ) : (
-                    <UnderConstruction styling="" type="below">
+                    <UnderConstruction styling="">
                       <Link
                         className="mx-8 hover:underline"
                         key={idx}
@@ -515,7 +515,7 @@ export default function Page() {
                       />
                     </a>
                   ) : (
-                    <UnderConstruction key={idx} type="above">
+                    <UnderConstruction key={idx}>
                       <a
                         key={idx}
                         href={e.link}
@@ -549,7 +549,7 @@ export default function Page() {
                     {e.name}
                   </Link>
                 ) : (
-                  <UnderConstruction styling="my-2" type="below">
+                  <UnderConstruction styling="my-2">
                     <Link className="hover:underline" key={idx} href={e.href}>
                       {e.name}
                     </Link>
@@ -567,7 +567,7 @@ export default function Page() {
 
             <p>Get notified about News. Artworks. Live bid and more.</p>
 
-            <UnderConstruction type="below">
+            <UnderConstruction>
               <div className="my-4 grid-cols-[3fr_1fr] gap-0 rounded-xl bg-gray-blue sm:grid">
                 <input
                   className="w-full rounded-xl bg-gray-blue p-5 text-center text-white outline-none placeholder:text-white sm:w-auto sm:rounded-l-xl sm:text-left"
