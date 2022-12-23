@@ -14,6 +14,7 @@ module.exports = {
         "right-gradient": "url('/assets/images/right-gradient.png')",
       },
       colors: {
+        "tooltip-red": "#FF0000",
         dim: "rgba(0,0,0,0.5)",
         "navy-dim": "rgba(14, 15, 38, 0.95)",
         navy: "#0E0F26",
