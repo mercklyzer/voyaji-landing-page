@@ -407,7 +407,13 @@ export default function Page() {
       {/* MOBILE HEADER */}
       <header className="relative block h-[70vh] w-full text-center md:hidden">
         <div className="relative z-10 h-full overflow-hidden">
-          <video className="h-full w-full object-cover" autoPlay muted loop>
+          <video
+            className="h-full w-full object-cover"
+            autoPlay
+            muted
+            loop
+            playsInline
+          >
             <source src="assets/videos/flip.mp4" type="video/mp4" />
             Your browser does not support video tags
           </video>
