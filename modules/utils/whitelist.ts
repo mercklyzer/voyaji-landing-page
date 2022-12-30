@@ -2910,6 +2910,7 @@ const whitelisted = [
   "0x1d576fe24ff63061e0b53edf59072ca8bfc84d4c",
   "0x699083e478A3902a8Cd1fEA876A6A22b9D790D7a",
   "0x190E6e5E5F426fC7f9552A51613CD72AC7012ED0",
+  "0xE3DaEE5874FB91f57ff5985Bb1C678A0038435da",
 ];
 
 function isWhitelisted(address: string) {
