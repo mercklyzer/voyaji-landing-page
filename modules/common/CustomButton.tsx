@@ -4,6 +4,7 @@ import { useAccount } from "wagmi";
 import { HoverImage } from "modules/common";
 import { isWhitelisted } from "modules/utils";
 
+// custom button
 const CustomButton: React.FC = () => {
   const [loading, setLoading] = useState(false);
   const { open } = useWeb3Modal();
