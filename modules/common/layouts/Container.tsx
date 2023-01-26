@@ -4,6 +4,7 @@ const Container: React.FC<{
 }> = (props) => {
   return (
     <main
+      id="container"
       className={`flex w-screen flex-col items-center overflow-hidden ${props.styling}`}
     >
       {props.children}

@@ -1,4 +1,4 @@
-type ButtonType = "voyage" | "connect" | "studio";
+type ButtonType = "voyage" | "connect" | "studio" | "enter";
 
 const Button: React.FC<{
   type: ButtonType;
@@ -9,7 +9,7 @@ const Button: React.FC<{
     <img
       className={`transition-all hover:scale-125 hover:cursor-pointer ${props.styling}`}
       onClick={() => (props.func ? props.func() : undefined)}
-      src={`assets/buttons/${props.type}.png`}
+      src={`assets/buttons/${props.type}.svg`}
       alt={`${props.type} Button`}
     />
   );
