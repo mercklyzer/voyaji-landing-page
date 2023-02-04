@@ -1,4 +1,4 @@
-type ButtonType = "voyage" | "connect" | "studio" | "enter";
+type ButtonType = "voyage" | "connect" | "studio" | "enter" | "join";
 
 const Button: React.FC<{
   type: ButtonType;

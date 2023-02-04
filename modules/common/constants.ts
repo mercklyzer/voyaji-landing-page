@@ -12,7 +12,7 @@ const NAVIGATION = [
   {
     name: "About",
     href: "/about",
-    isActive: false,
+    isActive: true,
   },
 ];
 

@@ -6,12 +6,18 @@ import {
   SOCIALS,
   UnderConstruction,
 } from "modules/common";
+import { useRouter } from "next/router";
 
 const Nav: React.FC = () => {
   /*
    * @dev page = Home | Contact | About
    */
-  const [page, setPage] = useState("Home");
+  const router = useRouter();
+  const [page, setPage] = useState(() => {
+    const path = router.pathname;
+    if(path === "/")    return "Home"
+    if(path === "/about") return "About"
+  });
   const [showMobileNav, setShowMobileNav] = useState(false);
 
   useEffect(() => {
@@ -30,7 +36,7 @@ const Nav: React.FC = () => {
   }, [showMobileNav]);
 
   return (
-    <nav className="fixed z-50 w-screen font-montserrat-regular">
+    <nav className="fixed z-50 w-full font-montserrat-regular">
       {/* DESKTOP */}
       <div className="flex w-full justify-center bg-navy">
         <div className="hidden h-[10vh] w-full max-w-[1200px] items-center justify-between bg-navy text-white md:flex">
@@ -112,6 +118,7 @@ const Nav: React.FC = () => {
                           className="mb-4 flex items-center"
                           key={idx}
                           href={e.href}
+                          onClick={() => setPage(e.name)}
                         >
                           <img
                             className="mr-4"

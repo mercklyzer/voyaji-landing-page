@@ -7,6 +7,7 @@ module.exports = {
         enchanted: ["Enchanted Land"],
         "montserrat-regular": ["Montserrat Regular"],
         "montserrat-bold": ["Montserrat Bold"],
+        "clash-display-bold": ["Clash Display Bold"],
       },
       backgroundImage: {
         placeholder: "url('/assets/images/placeholder.jpg')",
@@ -25,6 +26,19 @@ module.exports = {
         orange: "#d37c2b",
         yellow: "#fbdc7e",
       },
+      keyframes: {
+        marquee: {
+            '0%': { transform: 'translateX(0%)' },
+            '100%': { transform: 'translateX(-100%)' },
+          },
+          marquee2: {
+            '0%': { transform: 'translateX(100%)' },
+            '100%': { transform: 'translateX(0%)' },
+          },
+      },
+      animation: {
+        'marquee-infinite' : 'marquee 25s linear infinite',
+      }
     },
   },
   plugins: [],

@@ -9,6 +9,7 @@ import {
 import { Web3Modal, useWeb3Modal } from "@web3modal/react";
 import { configureChains, createClient, WagmiConfig } from "wagmi";
 import { mainnet } from "wagmi/chains";
+import { Footer, Nav } from "modules/common";
 
 const chains = [mainnet];
 const projectId = String(process.env.NEXT_PUBLIC_WALLETCONNECT_PROJECT_ID);
@@ -33,7 +34,10 @@ export default function App({ Component, pageProps }: AppProps) {
   return (
     <>
       <WagmiConfig client={wagmiClient}>
+        <Nav />
         <Component {...pageProps} />
+        <Footer />
+
       </WagmiConfig>
       <Web3Modal enableNetworkView={true} ethereumClient={ethereumClient} />
     </>

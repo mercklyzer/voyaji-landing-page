@@ -16,8 +16,6 @@ export default function Page() {
         <title>Voyaji</title>
       </HTMLHead>
 
-      <Nav />
-
       {/* DESKTOP HEADER */}
       <header className="relative hidden w-full md:block">
         <div className="h-[10vh] md:hidden"></div>
@@ -41,7 +39,6 @@ export default function Page() {
               extensive experience in NFT Asset Creation and NFT Management.
             </p>
 
-            <div className="flex">
               <Link
                 className="z-20 self-start self-center md:self-start"
                 href="https://map.voyaji.io/"
@@ -51,6 +48,7 @@ export default function Page() {
                   styling="h-[50px] md:h-[60px] lg:h-[80px]"
                 />
               </Link>
+            <div className="flex">
             </div>
           </aside>
         </div>
@@ -141,7 +139,6 @@ export default function Page() {
         />
       </section>
 
-      <Footer />
     </Container>
   );
 }
