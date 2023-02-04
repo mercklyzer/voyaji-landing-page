@@ -13,7 +13,8 @@ const Join: FunctionComponent = () => {
                 backgroundPosition: 'center'
             }}>
             <div className='w-full max-w-[1200px] flex flex-col items-center justify-center space-y-12'>
-                <h1 className='font-montserrat-bold text-white text-center
+                <h1 className='font-montserrat-bold text-white 
+                    text-center
                     text-4xl lg:text-6xl'>Join the Voyage!</h1>
                 <Link
                         href="https://map.voyaji.io/"
