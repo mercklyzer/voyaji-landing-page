@@ -31,7 +31,7 @@ const Nav: React.FC = () => {
       container.style.overflowY = "hidden";
     } else {
       container.style.height = "auto";
-      container.style.overflowY = "scroll";
+      container.style.overflowY = "auto";
     }
   }, [showMobileNav]);
 
